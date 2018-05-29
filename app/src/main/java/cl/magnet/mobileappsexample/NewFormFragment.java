@@ -29,7 +29,13 @@ public class NewFormFragment extends Fragment {
     public NewFormFragment() {
         // Required empty public constructor
         //model = ViewModelProviders.of(getActivity()).get(FormViewModel.class);
-        buttonSubmit.setOnClickListener();
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+               String nombre = etName.getText().toString();
+               String date = etDate.getText().toString();
+
+            }
+        });
 
     }
     public static NewFormFragment newInstance() {
