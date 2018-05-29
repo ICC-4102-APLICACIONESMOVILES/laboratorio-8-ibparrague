@@ -33,6 +33,8 @@ public class NewFormFragment extends Fragment {
             public void onClick(View v) {
                String nombre = etName.getText().toString();
                String date = etDate.getText().toString();
+               Form forma = new Form(1,nombre,date);
+               
 
             }
         });
