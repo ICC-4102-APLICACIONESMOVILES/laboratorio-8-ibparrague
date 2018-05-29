@@ -1,5 +1,7 @@
 package cl.magnet.mobileappsexample;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -101,10 +103,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+            //android.support.v4.app.Fragment objFragment = NewFormFragment.newInstance();
+            transaction.replace(R.id.list , new NewFormFragment() );
+            transaction.commit();
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
