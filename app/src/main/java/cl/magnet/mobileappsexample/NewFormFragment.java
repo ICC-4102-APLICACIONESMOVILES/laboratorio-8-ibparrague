@@ -16,6 +16,10 @@ import android.widget.EditText;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import cl.magnet.mobileappsexample.db.Form;
 import cl.magnet.mobileappsexample.db.FormViewModel;
 
@@ -23,27 +27,22 @@ import cl.magnet.mobileappsexample.db.FormViewModel;
 public class NewFormFragment extends Fragment {
     private FormViewModel model;
     private EditText etName;
-    private EditText etDate;
+    //private EditText etDate;
     private Button buttonSubmit;
 
     public NewFormFragment() {
         // Required empty public constructor
-        //model = ViewModelProviders.of(getActivity()).get(FormViewModel.class);
+
+        final Random randon = new Random();
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               String nombre = etName.getText().toString();
-               String date = etDate.getText().toString();
-               Form forma = new Form(1,nombre,date);
-               
-
+                String nombre = etName.getText().toString();
+                Form forma = new Form(randon.nextInt(), etName.getText().toString(), "Today");
+                List<Form> listForms = new ArrayList<>();
+                listForms.add(forma);
+                model.insert(listForms);
             }
         });
-
-    }
-    public static NewFormFragment newInstance() {
-        NewFormFragment fragment = new NewFormFragment();
-
-        return fragment;
     }
 
     @Override
@@ -58,7 +57,8 @@ public class NewFormFragment extends Fragment {
         ViewModelProviders.of(this).get(FormViewModel.class);
         super.onViewCreated(view, savedInstanceState);
         etName = view.findViewById(R.id.editTextName);
-        etDate = view.findViewById(R.id.editTextDate);
+        //etDate = view.findViewById(R.id.editTextDate);
         buttonSubmit = view.findViewById(R.id.buttonSubmit);
+        model = ViewModelProviders.of(getActivity()).get(FormViewModel.class);
     }
 }

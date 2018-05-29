@@ -27,25 +27,29 @@
             android:ems="10"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textViewDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:textSize="24sp" />
+        <!--
+       <TextView
+           android:id="@+id/textViewDate"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Date"
+           android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
+
+       <EditText
+           android:id="@+id/editTextDate"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:ems="10"
+           android:inputType="date" />
+        -->
 
         <Button
             android:id="@+id/buttonSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit" />
+
 
     </LinearLayout>
 
